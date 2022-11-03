@@ -1,0 +1,50 @@
+ {% extends 'base.html' %}
+ 
+ {% block title %}Details{% endblock title %}
+ {% block header %}{% include "header.html" %}{% endblock header %}
+ {% block hero %}{% include "hero.html" %}{% endblock hero %}
+{% block content %}
+ <!-- content section begin -->
+ <div class="content">
+  <!-- content4  -->
+  <div class="details">
+    <div class="container">
+      <h3 class="title">product Details</h3>
+      <div class="row justify-content-center gy-5">
+        <div class="col-1 col-sm-2 col-md-2 col-lg-3 order-lg-0 d-none d-lg-block">
+          <div class="pen1">
+            <img src="/img/model12.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-8 col-sm-8 col-md-7 col-lg-5 order-0 order-lg-1">
+          <div class="card">
+            <a href="#"><img src="{{details.p_img.url}}"  class="card-img-top"></a>
+            <div class="card-body">
+              <h5 class="card-title">category: {{details.category.name|title}}</h5>
+              <p class="card-text">product: {{details.p_name|title}}</p>
+              <p class="card-text">price: ${{details.p_price}}</p>
+              <p class="card-text">description: {{details.p_des}}</p>
+               <form action="{% url 'itemocart' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="productid" value="{{details.id}}">
+                <label>Qty: <input name="quantity" type="number" value="1" min="{{details.p_min}}" max="{{details.p_max}}" class="py-1 px-2"></label> 
+                <button type="submit" class="btn my-2">add to cart</button>
+               </form> 
+            </div>  
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-8 col-sm-8 col-md-5  col-lg-3 order-1 order-lg-2">
+           <div class="pen2">
+            <img src="/img/model14.jpg" alt="">
+           </div>
+        </div>
+        <!--  -->
+      </div>
+    </div>
+  </div>
+  <!-- content4 done  -->
+</div>
+
+{% endblock content %}
+{% block footer %}{% include "footer.html" %}{% endblock footer %}

@@ -1,0 +1,71 @@
+ {% extends 'base.html' %}
+ {% load static %}
+
+ {% block title %}user signin{% endblock title %}
+ {% block header %}{% include "header.html" %}{% endblock header %}
+{% block content %}
+<!-- content section begin -->
+<div class="content">
+  <!-- content4  -->
+  <div class="profile">
+    <div class="container">
+      <h3 class="title">signin</h3>
+      <div class="row justify-content-center gy-5">
+        <div class="col-1 col-sm-2 col-md-2 col-lg-3 order-lg-0 d-none d-lg-block">
+          <div class="card newimg">
+            <img src="{% static '' %}img/model12.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-8 col-sm-8 col-md-7 col-lg-5 order-0 order-lg-1">
+          <div class="card">
+            <!-- <a href="#"><img src="/img/model7.jpg"  class="card-img-top"></a> -->
+            <div class="card-body">
+              <div class="address">
+                <form class="form_box" method="post" action="{% url 'signin' %}">
+                  {% csrf_token %}
+                  <div class="mb-3">
+                    <label for="exampleInputText1" class="form-label">username</label>
+                    <input type="text" name="username" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputText1" class="form-label">password</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                  </div>
+                  <button type="submit" class="btn">signin</button>
+                  <div class="mb-3 password">
+                    <div id="textHelp" class="form-text">signin to fast track your order processing.</div>
+                    <a href="#" id="textHelp" class="form-text">or signup for a new account</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-8 col-sm-8 col-md-5  col-lg-3 order-1 order-lg-2 advert">
+           <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 mb-4">
+              <div class="card">
+                <img src="{% static '' %}img/benz.jpg" alt="">
+                <div class="card-body purple">
+                  <!-- <p class="card-text"><a href="/product.html">home</a></p>
+                  <p class="card-text"><a href="/product.html">cart</a></p>
+                  <p class="card-text"><a href="/product.html">profile</a></p>
+                  <p class="card-text"><a href="/product.html">profile update</a></p>
+                  <p class="card-text"><a href="/product.html">password update</a></p> -->
+                </div>
+               </div>
+            </div>
+           </div>
+        </div>
+        <!--  -->
+      </div>
+    </div>
+  </div>
+  <!-- content4 done  -->
+  <!-- content5  -->
+  {% include "brands.html" %}
+  <!-- content5 ends  -->
+</div>
+{% endblock content %}
+{% block footer %}{% include "footer.html" %}{% endblock footer %}
