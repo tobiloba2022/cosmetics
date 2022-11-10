@@ -1,4 +1,3 @@
-from itertools import product
 from django.contrib import admin
 from .models import *
 # Register your models here.
@@ -15,3 +14,5 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('p_name',)}
 
     
+admin.site.site_header = 'Avenger Cosmetics'
+admin.site.index_title = 'Avenger Cosmetics Admin'

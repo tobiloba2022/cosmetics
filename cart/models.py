@@ -9,6 +9,7 @@ class Shopcart(models.Model):
     product = models.ForeignKey(Product, on_delete= models.CASCADE)
     price = models.IntegerField()
     quantity = models.IntegerField()
+    item_carted = models.IntegerField(default=1.0)
     amount = models.FloatField(default=1.0)
     cart_no = models.CharField(max_length=50)
     paid = models.BooleanField(default=False)

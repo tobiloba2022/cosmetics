@@ -53,15 +53,25 @@
               {% endif %}
             </ul>
           </li>
-          <li class="nav-item me-3">
-            <a  class="nav-link">
+          <li class="nav-item me-2">
+            <a class="nav-link">
+              <span class="badge rounded-pill bg-primary">
+                {% if cart_counter > 0 %} 
+                  <span class="badge rounded-pill bg-warning text-white"><a href="{% url 'cart' %}">{{cart_counter}}</a></span>
+                {% else %}
+                  <span class="badge rounded-pill bg-danger text-white"><a href="{% url 'cart' %}">0</a></span>  
+                {% endif %}
+              </span>
+            </a>
+          </li>
+          <li class="nav-item me-2">
+             <a  class="nav-link">
                  <div class="modemoon">
                   <i class="fa-solid fa-moon"></i>
                   <!-- <i class="fa-solid fa-sun"></i> -->
                  </div>
             </a>
           </li>
-        </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn search_btn" type="submit">Search</button>
